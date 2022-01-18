@@ -1,0 +1,112 @@
+(Thanks Matt Graeber)
+
+Determine PS Version: (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\PowerShell\*\PowerShellEngine -Name PowerShellVersion).PowerShellVersion
+
+File Formats:
+
+.ps1 - a single PowerShell script
+
+• .psm1 - a PowerShell module file
+
+ Allows you to do things like hide/only export specific functions/variables
+
+ Also allows for better structuring of your complex PowerShell code
+
+• .psd1 - a PowerShell module manifest, the other part of a module
+
+ Specifies meta information as well as function/variable exports
+
+• .ps1xml - an object formatting file For a module, allows granular control of how custom objects are displayed
+
+Get-Command
+• Returns all commands currently installed for your PowerShell
+instance, including cmdlets, aliases, functions, workflows, filters,
+scripts, and applications
+• -Name *process* : returns all commands with ‘process’ in the name
+• -Verb [Get/Set/Add/etc.] : verbs can be retrieved with Get-Verb
+• -Module NAME : returns commands from a specific module
+• -CommandType [Alias/Cmdlet/Function/etc.] : providing ‘Alias’ is the
+same as Get-Alias
+
+
+Get-Help
+• “Proper” PowerShell cmdlets/functions have comment-based help
+• Get-Help Get-Process [-detailed] [-full] [-examples]
+• Get-Member allows you to explore the methods and properties for
+an object:
+• $p = Get-Process notepad
+• $p | gm -force
+• You can also quickly figure out a function’s overloaded definitions
+by leaving the ()s off:
+• $p = Get-Process notepad
+• $p.CloseMainWindow
+
+
+
+The Pipeline
+• The pipeline is one of the most important aspects of PowerShell to
+really understand
+• Bash functions return strings on the pipeline that can be passed to
+other functions, while PowerShell cmdlets return complete objects
+on the pipeline
+• If cmdlets/functions are built correctly, you can pass output from
+one function straight to anotherPSDrives
+
+PS-DRIVES:
+• A PSDrive is a pointer to a data structure that is managed by
+something called a PSProvider
+• Providers are enumerable with Get-PSProvider, and PSDrives are Enumerable
+with Get-PSDrive
+• PSDrives can be used like a traditional file system
+• This is why have Verb-Item* cmdlets like:
+• Get-Item, Get-ChildItem (ls), Get-ItemProperty, Move-Item (mv), Copy-Item
+(cp), and Remove-Item (rm)
+• Customer providers can be built/loaded as well
+• More information: Get-Help Get-PSDrive / Get-Help Get-PSProvider
+• Note: PSDrives are attacker-controlable...
+• Get-Process notepad | Stop-Process -Force
+• Note: echo/Write-Host breaks the pipeline!
+• Get-PSDrive
+
+
+
+PowerShell Profiles
+• Scripts that run every time an “official” PowerShell host (meaning
+powershell.exe/powershell_ise.exe) starts
+• Meant for shell customization
+• Not loaded with remoting!
+• i.e. the PowerShell version of /etc/profile
+• You can check your current profile with $profile
+• Profiles can be subverted with malicious proxy functionality!
+• More information: http://www.exploitmonday.
+com/2015/11/investigating-subversive-powershell.html
+• More information: Get-Help about_Profiles
+
+
+Exporting/Importing PowerShell Objects
+• function... | Export-Clixml output.xml exports an XML-based
+representation of one or more objects that can later be reimported
+with Import-CliXML
+
+Get-Process | Export-CLIxml process.xml
+$Processes = Import-CLixml .\process.xml
+$Processes[0]
+
+Variables
+• $ followed by any combination of numbers and (case-insensitive)
+letters
+• If using New-Variable, you can specify non-printable characters!
+• New-Variable -Name ([Char] 7) -Value 'foo'
+• To see more information about all of the automatic variables (like
+$ENV) run Get-Help about_Automatic_Variables
+• If you want to list all of the variables in your current scope:
+• Get-ChildItem Variable:\
+• To cast a variable to a specific type, use [Type] $Var
+
+
+
+
+
+
+
+
