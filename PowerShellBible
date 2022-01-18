@@ -103,6 +103,28 @@ $ENV) run Get-Help about_Automatic_Variables
 • Get-ChildItem Variable:\
 • To cast a variable to a specific type, use [Type] $Var
 
+Common Operators
+• Arithmetic: +, -, *, /, %
+• Assignment: =, +=, -=, *=, /=, %=
+• Comparison: -eq, -ne, -gt, -lt, -le, -ge (also the regex operators)
+• Logical: -and, -or, -xor, -not, !
+• Redirection: >, >>, 2>, 2>>, and 2>&1
+• Type: -is, -isnot, -as
+• Special: @(), & (call), [] (cast), , (comma), . (dot-sourcing), .. (range),
+$() (sub-expression)
+• More information: Get-Help about_Operators
+• Each operator type has an about_X_Operators doc as well
+
+
+Arrays
+• Data structures designed to store collections of items
+• Implicit creation: $array = 4,6,1,60,23,53
+• Explicit creation: $array = @(4,6,”s”,60,”yes”,5.3)
+• Ranged creation: $array = 1..100
+• Strongly typed: [int32[]]$array = 1500,1600,1700,1800
+• More information: Get-Help about_arrays
+
+
 
 
 
