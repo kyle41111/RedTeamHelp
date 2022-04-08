@@ -1,4 +1,6 @@
 sudo apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf 2to3 python3-lib2to3 python3-toolz
+sudo python3 -m pipx ensurepath
+sudo apt-get install python3-poetry
 cd /opt
 sudo chmod 777 RedTeamHelp
 cd /opt/RedTeamHelp
