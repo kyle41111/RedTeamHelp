@@ -37,7 +37,7 @@ sudo git clone https://github.com/dirkjanm/adidnsdump.git
 sudo git clone https://github.com/dirkjanm/PrivExchange.git
 python3 -m pip install lsassy
 sudo git clone https://github.com/zer1t0/ticket_converter.git
-
+sudo git clone https://github.com/dirkjanm/adidnsdump
 cd ..
 git clone https://github.com/ropnop/windapsearch.git
 sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
