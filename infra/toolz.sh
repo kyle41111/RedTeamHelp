@@ -54,7 +54,7 @@ cd networking
 sudo git clone https://github.com/cube0x0/KrbRelay.git
 cd ..
 cd socialEngineering
-go install github.com/drk1wi/Modlishka
+sudo go install github.com/drk1wi/Modlishka@latest
 sudo git clone https://github.com/drk1wi/Modlishka.git
 cd Modlishka
 sudo make
