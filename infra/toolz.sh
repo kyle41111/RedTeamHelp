@@ -1,5 +1,7 @@
 sudo apt install seclists curl enum4linux feroxbuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf 2to3 python3-lib2to3 python3-toolz
 sudo apt install gobuster
+sudo apt install golang
+sudo apt install certbot
 sudo python3 -m pipx ensurepath
 sudo apt-get install python3-poetry
 sudo apt install python3-pip
@@ -51,7 +53,10 @@ sudo git clone https://github.com/kyle41111/OffensiveCSharp.git
 cd networking
 sudo git clone https://github.com/cube0x0/KrbRelay.git
 cd ..
+cd socialEngineering
+go install github.com/drk1wi/Modlishka
+sudo git clone https://github.com/drk1wi/Modlishka.git
 
-
-
+cd Modlishka
+sudo make
 
