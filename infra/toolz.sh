@@ -6,6 +6,7 @@ sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
 sudo apt-get install python3-ldap
 cd /opt
 sudo chmod 777 RedTeamHelp
+sudo mkdir payloads
 cd /opt/RedTeamHelp
 sudo mkdir cves
 sudo chmod 777 cves
