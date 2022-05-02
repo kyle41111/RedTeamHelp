@@ -1,6 +1,9 @@
 sudo apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf 2to3 python3-lib2to3 python3-toolz
 sudo python3 -m pipx ensurepath
 sudo apt-get install python3-poetry
+sudo apt install python3-pip
+sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
+sudo apt-get install python3-ldap
 cd /opt
 sudo chmod 777 RedTeamHelp
 cd /opt/RedTeamHelp
@@ -38,9 +41,10 @@ sudo git clone https://github.com/dirkjanm/PrivExchange.git
 python3 -m pip install lsassy
 sudo git clone https://github.com/zer1t0/ticket_converter.git
 sudo pip install git+https://github.com/dirkjanm/adidnsdump#egg=adidnsdump
+git clone https://github.com/ropnop/windapsearch.git
 
 cd ..
-git clone https://github.com/ropnop/windapsearch.git
-sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
-sudo apt-get install python3-ldap
+sudo git clone https://github.com/kyle41111/OffensiveCSharp.git
+
+
 
