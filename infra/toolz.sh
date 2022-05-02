@@ -47,5 +47,10 @@ git clone https://github.com/ropnop/windapsearch.git
 cd ..
 sudo git clone https://github.com/kyle41111/OffensiveCSharp.git
 
+cd networking
+sudo git clone https://github.com/cube0x0/KrbRelay.git
+cd ..
+
+
 
 
