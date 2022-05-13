@@ -1,3 +1,5 @@
+https://gist.github.com/analyticsearch/ba84b5d5a357230b4d54dab7215d5953
+
 Process Hollowing w/ Tiki
 PS C:\Users\Daniel> Get-CompressedShellcode -inFile D:\Tools\GruntStager.bin -outFile D:\Tools\TikiGruntStager.txt
 
